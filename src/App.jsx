@@ -13,7 +13,6 @@ function App() {
         const { latitude, longitude } = await location;
         const data = await FetchData(latitude, longitude);
         setWeatherData(data);
-        console.log(data); // Log the data when it's available
       } catch (error) {
         console.error('Error fetching location or weather data:', error);
       }
