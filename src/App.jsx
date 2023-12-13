@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FetchData } from './fetchData.jsx';
+import { getWeatherData } from './getWeatherData.jsx';
 import { getCurrentLocation } from './getCurrentLocation.jsx';
 import './main.scss';
 
@@ -9,9 +9,8 @@ function App() {
   useEffect(() => {
     const fetchDataAndLocation = async () => {
       try {
-        const location = await getCurrentLocation();
-        const { latitude, longitude } = await location;
-        const data = await FetchData(latitude, longitude);
+        const location = "Leipzig";
+        const data = await getWeatherData(location);
         setWeatherData(data);
       } catch (error) {
         console.error('Error fetching location or weather data:', error);
